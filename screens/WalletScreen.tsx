@@ -1,4 +1,3 @@
-// screens/WalletScreen.tsx
 import React from "react";
 import {
   View,
@@ -54,12 +53,15 @@ export default function WalletScreen() {
                 )
               }
             >
+              {/* Icon */}
               <Ionicons
                 name={item.type === "add" ? "add-circle" : "bicycle"}
                 size={28}
                 color={item.type === "add" ? "#4CAF50" : "#7B2CBF"}
                 style={styles.transactionIcon}
               />
+
+              {/* Text */}
               <View style={styles.transactionTextContainer}>
                 <Text style={styles.transactionTitle}>
                   {item.type === "add" ? "Funds Added" : "Ride Payment"}
@@ -68,6 +70,8 @@ export default function WalletScreen() {
                   {formatDate(item.date)}
                 </Text>
               </View>
+
+              {/* Amount */}
               <Text
                 style={[
                   styles.transactionAmount,
