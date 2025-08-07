@@ -8,10 +8,10 @@ import MapScreen from "./screens/MapScreen";
 import WalletScreen from "./screens/WalletScreen";
 import TransactionDetailsScreen from "./screens/TransactionDetailsScreen";
 import SideMenu from "./navigation/SideMenu";
-import { WalletProvider } from "./context/WalletContext";
+import { WalletProvider, Transaction } from "./context/WalletContext";
 
 const Drawer = createDrawerNavigator();
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<RootStackParamList>();
 
 // 📌 Drawer navigation
 function DrawerNavigator() {
@@ -39,7 +39,10 @@ function MainNavigator() {
 
       {/* Global routes available from anywhere */}
       <Stack.Screen name="Wallet" component={WalletScreen} />
-      <Stack.Screen name="TransactionDetails" component={TransactionDetailsScreen} />
+      <Stack.Screen
+        name="TransactionDetails"
+        component={TransactionDetailsScreen}
+      />
       <Stack.Screen name="RideSummary" component={RideSummaryScreen} />
     </Stack.Navigator>
   );
@@ -55,9 +58,12 @@ export default function App() {
   );
 }
 
-
-
-
+export type RootStackParamList = {
+  Drawer: undefined;
+  Wallet: undefined;
+  TransactionDetails: { transaction: Transaction };
+  RideSummary: undefined;
+};
 
 // // App.tsx
 // import React from "react";
@@ -97,8 +103,6 @@ export default function App() {
 //     </NavigationContainer>
 //   );
 // }
-
-
 
 //VERSION 2
 // import React from "react";

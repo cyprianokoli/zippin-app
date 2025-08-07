@@ -18,7 +18,7 @@ export default function SideMenu() {
       {/* Menu Items */}
       <TouchableOpacity
         style={styles.menuItem}
-        onPress={() => navigation.navigate("Home" as never)}
+        onPress={() => navigation.navigate("Drawer", { screen: "Home" })}
       >
         <Ionicons name="map" size={22} color="#fff" />
         <Text style={styles.menuText}>Home</Text>
@@ -55,17 +55,17 @@ export default function SideMenu() {
 }
 
 const styles = StyleSheet.create({
-  container: { 
-    flex: 1, 
-    backgroundColor: "#7B2CBF", 
-    paddingTop: 50, 
-    paddingHorizontal: 10 
+  container: {
+    flex: 1,
+    backgroundColor: "#7B2CBF",
+    paddingTop: 50,
+    paddingHorizontal: 10,
   },
-  logo: { 
-    width: 160,  // Bigger for visibility
-    height: 60, 
-    alignSelf: "center", 
-    marginBottom: 40 
+  logo: {
+    width: 160, // Bigger for visibility
+    height: 60,
+    alignSelf: "center",
+    marginBottom: 40,
   },
   menuItem: {
     flexDirection: "row",
@@ -74,15 +74,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     borderRadius: 8,
   },
-  menuText: { 
-    color: "#fff", 
-    marginLeft: 12, 
-    fontSize: 17, 
-    fontWeight: "500" 
+  menuText: {
+    color: "#fff",
+    marginLeft: 12,
+    fontSize: 17,
+    fontWeight: "500",
   },
   logoutItem: {
     backgroundColor: "rgba(255,255,255,0.1)",
     borderRadius: 8,
     marginBottom: 20,
-  }
+  },
 });
