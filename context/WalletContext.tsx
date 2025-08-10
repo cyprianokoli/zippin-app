@@ -25,7 +25,10 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
   const [balance, setBalance] = useState(12.42);
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
-  const persistData = async (newTransactions: Transaction[], newBalance: number) => {
+  const persistData = async (
+    newTransactions: Transaction[],
+    newBalance: number
+  ) => {
     setTransactions(newTransactions);
     setBalance(newBalance);
     await AsyncStorage.setItem("transactions", JSON.stringify(newTransactions));
@@ -56,7 +59,9 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <WalletContext.Provider value={{ balance, transactions, addFunds, deductFunds }}>
+    <WalletContext.Provider
+      value={{ balance, transactions, addFunds, deductFunds }}
+    >
       {children}
     </WalletContext.Provider>
   );
