@@ -15,7 +15,7 @@ export default function RideSummaryScreen() {
         <Text style={styles.error}>No ride data available.</Text>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => navigation.navigate("Drawer", { screen: "Home" })}
         >
           <Text style={styles.buttonText}>Go Home</Text>
         </TouchableOpacity>
@@ -29,7 +29,9 @@ export default function RideSummaryScreen() {
 
       <View style={styles.summaryCard}>
         <Text style={styles.label}>Duration</Text>
-        <Text style={styles.value}>{(transaction.duration / 60).toFixed(1)} min</Text>
+        <Text style={styles.value}>
+          {(transaction.duration / 60).toFixed(1)} min
+        </Text>
 
         <Text style={styles.label}>Distance</Text>
         <Text style={styles.value}>{transaction.distance.toFixed(2)} km</Text>
@@ -43,7 +45,9 @@ export default function RideSummaryScreen() {
 
       <TouchableOpacity
         style={styles.primaryButton}
-        onPress={() => navigation.navigate("TransactionDetails", { transaction })}
+        onPress={() =>
+          navigation.navigate("TransactionDetails", { transaction })
+        }
       >
         <Ionicons name="receipt-outline" size={18} color="#fff" />
         <Text style={styles.primaryButtonText}>View Transaction Details</Text>
@@ -51,7 +55,7 @@ export default function RideSummaryScreen() {
 
       <TouchableOpacity
         style={styles.secondaryButton}
-        onPress={() => navigation.navigate("Home")}
+        onPress={() => navigation.navigate("Drawer", { screen: "Home" })}
       >
         <Ionicons name="home-outline" size={18} color="#7B2CBF" />
         <Text style={styles.secondaryButtonText}>Go Home</Text>
@@ -61,8 +65,18 @@ export default function RideSummaryScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#fff", padding: 20, alignItems: "center" },
-  title: { fontSize: 26, fontWeight: "bold", marginBottom: 20, color: "#7B2CBF" },
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    padding: 20,
+    alignItems: "center",
+  },
+  title: {
+    fontSize: 26,
+    fontWeight: "bold",
+    marginBottom: 20,
+    color: "#7B2CBF",
+  },
   summaryCard: {
     width: "90%",
     backgroundColor: "#F8F8F8",
@@ -94,7 +108,6 @@ const styles = StyleSheet.create({
   button: { backgroundColor: "#7B2CBF", padding: 12, borderRadius: 8 },
   buttonText: { color: "#fff", fontWeight: "600" },
 });
-
 
 //V!
 // // screens/RideSummaryScreen.tsx
